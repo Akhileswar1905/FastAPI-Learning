@@ -8,8 +8,8 @@
 
 <!-- Path Defination or Route Defination-->
 
-@app.get("/api/")
-async def root():
+@app.get("/api/")\n
+async def root():\n
 return {"message": "Hello From FastAPI"}
 
 line 1 represents a decorator of the path or say endpoint, it is important to make the api work
