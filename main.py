@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from Models.PostModel import Post
 
 # Initialize the server
 app = FastAPI()
@@ -11,7 +12,7 @@ async def root():
 
 
 # Get Posts Method
-@app.get("/api/posts")
+@app.get("/api/posts/")
 async def get_posts():
     return {
         "data": {
@@ -19,3 +20,12 @@ async def get_posts():
             "description": "This is a social media API built using FastAPI!!",
         }
     }
+
+
+# Create the post Method
+@app.post("/api/posts/")
+async def create_post(post: Post):
+    print(post.title)
+    print(post.content)
+
+    return {"message": "Create a new post"}

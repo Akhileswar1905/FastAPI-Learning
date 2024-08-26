@@ -30,3 +30,64 @@ On further breaking down
 ```
 
 ![Structure of the Route](image-1.png)
+
+### Command to start the server : uvicorn main:app --reload
+
+## Day 2 of 20
+
+## Sending a POST request to the server
+
+### Using 'Body' to get the body of the request
+
+```
+from fastapi.params import Body
+@app.post("/api/posts/")
+async def create_post(req: dict = Body(...)):
+    print(req)
+    return {"message": "Create a new post"}
+```
+
+```
+-> In 'create_post' we are sending a post request to the API we are creating
+-> The parameters of the method represent the data to be sent to the server from the frontend
+-> 'Body' which is imported from fastapi.params represents the data inside the body of the POST request and converts it into a dictionary
+```
+
+```
+from Models.PostModel import Post
+@app.post("/api/posts/")
+async def create_post(post: Post):
+    print(post)
+    return {"message": "Create a new post"}
+```
+
+```
+-> We now replaced the 'Body' with 'Post' which represents the schema of the post
+```
+
+### Using Post Schema
+
+```
+-> We use Pydantic library to create the model of the posts
+from pydantic import BaseModel
+class Post(BaseModel):
+    title:str
+    content:str
+    published: bool: False
+    votes: Optional[int] = None
+
+```
+
+```
+-> 'BaseModel' represents a class in pydantic library
+-> 'Post' extends the class and defines the fields of the post
+-> 'title' and 'content' represent mandatory fields
+-> 'published' and 'votes' represent optional fields
+-> 'votes' represents optional field which only accepts integer values and with default value of 'None'
+-> 'published' represents the default boolean value with default value of 'False'
+
+```
+
+### CRUD Methods
+
+![Crud methods](image.png)
