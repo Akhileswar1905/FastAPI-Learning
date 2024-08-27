@@ -91,3 +91,41 @@ class Post(BaseModel):
 ### CRUD Methods
 
 ![Crud methods](image.png)
+
+Here's a `README.md` file with a summary of the code you wrote today:
+
+---
+
+## Day 3 Notes
+
+---
+
+### 1. **Create a Post (`POST /api/posts/`)**
+
+- **Description**: Adds a new post to the `posts` list.
+- **Status Code**: `201 Created`
+- **Details**: The new post is assigned an ID based on the current length of the `posts` list. The post is then added to the list and returned in the response.
+
+### 2. **Get a Post by ID (`GET /api/posts/{id}`)**
+
+- **Description**: Retrieves a post by its unique ID.
+- **Status Code**: `200 OK`
+- **Details**: Searches the `posts` list for a post with the given ID. If found, the post is returned; otherwise, a `404 Not Found` exception is raised.
+
+### 3. **Delete a Post (`DELETE /api/posts/{id}`)**
+
+- **Description**: Deletes a post by its unique ID.
+- **Status Code**: `204 No Content`
+- **Details**: Searches the `posts` list for a post with the given ID. If found, the post is removed from the list, and a success message is returned. If not found, a `404 Not Found` exception is raised.
+
+### 4. **Update a Post (`PUT /api/posts/{id}`)**
+
+- **Description**: Updates an existing post by its unique ID.
+- **Status Code**: `202 Accepted`
+- **Details**: Searches the `posts` list for a post with the given ID. If found, the post is updated with the new data and the list is modified accordingly. If not found, a `404 Not Found` exception is raised.
+
+---
+
+This section focused on creating basic CRUD operations for managing posts in a FastAPI application, enhancing my understanding of API development.
+
+#
