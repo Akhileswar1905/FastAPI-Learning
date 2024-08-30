@@ -5,5 +5,5 @@ from typing import Optional
 class Post(BaseModel):
     title: str
     content: str
-    published: bool = False
+    published: bool = True
     votes: Optional[int] = None
